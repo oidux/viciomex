@@ -205,26 +205,18 @@ body > * { position: relative; z-index: 2; }
 /* Uma categoria a cada duas ganha o título amarelo, como nos originais */
 .section:nth-of-type(even) .section__title { color: var(--yellow); }
 
-/* pequeno xadrez como acento sob o título */
+/* pequeno xadrez como acento sob o título — amarelo sobre transparente */
 .section__accent {
   height: var(--check);
   width: 68px;
   margin: -4px 0 18px;
   background-image: conic-gradient(
     var(--yellow) 90deg,
-    var(--cream) 90deg 180deg,
+    transparent 90deg 180deg,
     var(--yellow) 180deg 270deg,
-    var(--cream) 270deg
+    transparent 270deg
   );
   background-size: var(--check) var(--check);
-}
-.section:nth-of-type(even) .section__accent {
-  background-image: conic-gradient(
-    var(--cream) 90deg,
-    var(--yellow) 90deg 180deg,
-    var(--cream) 180deg 270deg,
-    var(--yellow) 270deg
-  );
 }
 
 /* ---- Item ---------------------------------------------------------------- */
