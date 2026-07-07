@@ -32,9 +32,8 @@
       : "";
     return `
       <div class="item">
-        <div class="item__head">
-          <span class="item__name">${item.nome}</span>
-          <span class="item__leader"></span>
+        <div class="item__row">
+          <h3 class="item__name">${item.nome}</h3>
           <span class="item__price">${item.preco}</span>
         </div>
         ${desc}
@@ -51,7 +50,7 @@
     return `
       <section class="section" id="sec-${id}">
         <h2 class="section__title">${secao.categoria}</h2>
-        <div class="section__rule"></div>
+        <div class="section__accent"></div>
         ${itens}
         ${nota}
       </section>`;

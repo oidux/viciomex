@@ -10,11 +10,11 @@
   <!-- Fontes -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Shrikhand&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,700..900;1,6..96,500..700&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Yellowtail&display=swap" rel="stylesheet" />
 
-  <!-- ?v=2 = "controle de versão": ao mudar o site, aumente esse número
-       (v=3, v=4...) para o navegador baixar a versão nova em vez do cache. -->
-  <link rel="stylesheet" href="styles.css?v=2" />
+  <!-- ?v=3 = "controle de versão": ao mudar o site, aumente esse número
+       (v=4, v=5...) para o navegador baixar a versão nova em vez do cache. -->
+  <link rel="stylesheet" href="styles.css?v=3" />
 </head>
 <body>
   <!-- Faixa superior (verde / amarelo / verde) -->
@@ -22,13 +22,13 @@
 
   <header class="site-header">
     <img class="brand__logo" src="logo.png?v=2" alt="Vício Mex" width="472" height="440" />
-    <p class="brand__tagline">Comida mexicana com pegada de boteco</p>
+    <p class="brand__tagline">comida mexicana com pegada de boteco</p>
   </header>
 
   <!-- Abas Comida / Bebida -->
   <nav class="tabs" role="tablist" aria-label="Seções do cardápio">
-    <button class="tab is-active" role="tab" aria-selected="true" data-tab="comida">🌮 Comida</button>
-    <button class="tab" role="tab" aria-selected="false" data-tab="bebida">🍹 Bebida</button>
+    <button class="tab is-active" role="tab" aria-selected="true" data-tab="comida">Comida</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="bebida">Bebida</button>
   </nav>
 
   <!-- Chips de navegação rápida entre categorias -->
@@ -41,13 +41,13 @@
   <footer class="site-footer">
     <div class="checker" aria-hidden="true"></div>
     <p class="site-footer__note">Valores em reais (R$). Itens e preços sujeitos a alteração.</p>
-    <p class="site-footer__brand">Vício Mex • MEXidão</p>
+    <p class="site-footer__brand">Vício Mex</p>
   </footer>
 
   <!-- Botão voltar ao topo -->
   <button id="toTop" class="to-top" aria-label="Voltar ao topo" hidden>↑</button>
 
-  <script src="menu.js?v=2"></script>
-  <script src="app.js?v=2"></script>
+  <script src="menu.js?v=3"></script>
+  <script src="app.js?v=3"></script>
 </body>
 </html>
