@@ -30,6 +30,17 @@ Abra **`menu.js`** — é o único arquivo que você precisa mexer no dia a dia.
 
 Mantenha sempre as aspas `" "` e as vírgulas `,` no lugar.
 
+## Importante ao publicar mudanças (cache)
+
+O `index.html` carrega os arquivos com um número de versão, ex.:
+`styles.css?v=2`, `menu.js?v=2`. Isso força o navegador a baixar a versão
+nova em vez de usar uma cópia antiga guardada (cache).
+
+**Sempre que você atualizar o cardápio ou o visual, aumente esse número**
+em todos eles no `index.html` (de `?v=2` para `?v=3`, depois `?v=4`, e assim
+por diante). Se não aumentar, quem já visitou pode continuar vendo a versão
+antiga por até ~10 minutos.
+
 ## Como ver no computador
 
 É só abrir o arquivo `index.html` no navegador (duplo clique). Precisa estar

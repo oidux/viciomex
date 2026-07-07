@@ -12,14 +12,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Shrikhand&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="styles.css" />
+  <!-- ?v=2 = "controle de versão": ao mudar o site, aumente esse número
+       (v=3, v=4...) para o navegador baixar a versão nova em vez do cache. -->
+  <link rel="stylesheet" href="styles.css?v=2" />
 </head>
 <body>
   <!-- Faixa superior (verde / amarelo / verde) -->
   <div class="flag-bar" aria-hidden="true"></div>
 
   <header class="site-header">
-    <img class="brand__logo" src="logo.png" alt="Vício Mex" width="472" height="440" />
+    <img class="brand__logo" src="logo.png?v=2" alt="Vício Mex" width="472" height="440" />
     <p class="brand__tagline">Comida mexicana com pegada de boteco</p>
   </header>
 
@@ -45,7 +47,7 @@
   <!-- Botão voltar ao topo -->
   <button id="toTop" class="to-top" aria-label="Voltar ao topo" hidden>↑</button>
 
-  <script src="menu.js"></script>
-  <script src="app.js"></script>
+  <script src="menu.js?v=2"></script>
+  <script src="app.js?v=2"></script>
 </body>
 </html>
