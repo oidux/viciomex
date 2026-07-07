@@ -108,18 +108,22 @@ body > * { position: relative; z-index: 2; }
   text-transform: none;
 }
 
-/* ---- Abas Comida / Bebida ------------------------------------------------ */
-.tabs {
+/* ---- Barra fixa (abas + categorias juntas) ------------------------------- */
+.topbar {
   position: sticky;
   top: 0;
   z-index: 20;
-  display: flex;
-  gap: 6px;
-  max-width: var(--maxw);
-  margin: 0 auto;
-  padding: 12px 16px;
   background: var(--red);
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.28);
+}
+
+/* ---- Abas Comida / Bebida ------------------------------------------------ */
+.tabs {
+  display: flex;
+  gap: 8px;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 12px 16px 0;
 }
 .tab {
   flex: 1;
@@ -147,16 +151,13 @@ body > * { position: relative; z-index: 2; }
 
 /* ---- Navegação por categorias (rótulos, não pílulas) --------------------- */
 .chips {
-  position: sticky;
-  top: 66px;
-  z-index: 19;
   display: flex;
-  gap: 20px;
+  gap: 22px;
   overflow-x: auto;
   max-width: var(--maxw);
   margin: 0 auto;
-  padding: 12px 16px 10px;
-  background: var(--red);
+  /* espaço maior acima separa o submenu das abas */
+  padding: 20px 16px 12px;
   border-bottom: 1px solid rgba(253, 243, 227, 0.18);
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
@@ -173,7 +174,8 @@ body > * { position: relative; z-index: 2; }
   color: rgba(253, 243, 227, 0.6);
   background: none;
   border: none;
-  padding: 2px 0 6px;
+  /* área de toque maior (mais fácil de clicar) */
+  padding: 7px 2px 9px;
   border-bottom: 3px solid transparent;
   cursor: pointer;
   transition: color 0.15s ease, border-color 0.15s ease;
@@ -190,7 +192,7 @@ body > * { position: relative; z-index: 2; }
   padding: 14px 18px 30px;
 }
 
-.section { padding: 26px 0 6px; scroll-margin-top: 116px; }
+.section { padding: 26px 0 6px; scroll-margin-top: 140px; }
 
 .section__title {
   font-family: var(--font-display);

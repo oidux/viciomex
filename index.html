@@ -12,9 +12,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Chicle&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Yellowtail&display=swap" rel="stylesheet" />
 
-  <!-- ?v=8 = "controle de versão": ao mudar o site, aumente esse número
+  <!-- ?v=9 = "controle de versão": ao mudar o site, aumente esse número
        (v=5, v=6...) para o navegador baixar a versão nova em vez do cache. -->
-  <link rel="stylesheet" href="styles.css?v=8" />
+  <link rel="stylesheet" href="styles.css?v=9" />
 </head>
 <body>
   <!-- Xadrez da marca no topo -->
@@ -25,14 +25,17 @@
     <p class="brand__tagline">comida mexicana com pegada de boteco</p>
   </header>
 
-  <!-- Abas Comida / Bebida -->
-  <nav class="tabs" role="tablist" aria-label="Seções do cardápio">
-    <button class="tab is-active" role="tab" aria-selected="true" data-tab="comida">Comida</button>
-    <button class="tab" role="tab" aria-selected="false" data-tab="bebida">Bebida</button>
-  </nav>
+  <!-- Barra fixa: abas + navegação de categorias -->
+  <div class="topbar">
+    <!-- Abas Comida / Bebida -->
+    <nav class="tabs" role="tablist" aria-label="Seções do cardápio">
+      <button class="tab is-active" role="tab" aria-selected="true" data-tab="comida">Comida</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="bebida">Bebida</button>
+    </nav>
 
-  <!-- Chips de navegação rápida entre categorias -->
-  <div class="chips" id="chips" aria-label="Ir para categoria"></div>
+    <!-- Chips de navegação rápida entre categorias -->
+    <div class="chips" id="chips" aria-label="Ir para categoria"></div>
+  </div>
 
   <main id="menu" class="menu">
     <!-- Conteúdo renderizado por app.js -->
@@ -47,7 +50,7 @@
   <!-- Botão voltar ao topo -->
   <button id="toTop" class="to-top" aria-label="Voltar ao topo" hidden>↑</button>
 
-  <script src="menu.js?v=8"></script>
-  <script src="app.js?v=8"></script>
+  <script src="menu.js?v=9"></script>
+  <script src="app.js?v=9"></script>
 </body>
 </html>

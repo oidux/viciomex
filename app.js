@@ -83,22 +83,51 @@
 
     // Sobe para o topo do menu ao trocar de aba.
     window.scrollTo({ top: 0, behavior: "auto" });
+    chipsEl.scrollLeft = 0;
+    ultimaAtiva = null;
     markActiveChip();
+  }
+
+  // Altura aproximada da barra fixa (abas + categorias).
+  const HEADER = 150;
+  let ultimaAtiva = null;
+
+  // Rola a barra de categorias para deixar o chip ativo sempre visível.
+  function garantirChipVisivel(chip) {
+    const c = chipsEl;
+    const alvo = chip.offsetLeft - (c.clientWidth - chip.clientWidth) / 2;
+    c.scrollTo({ left: Math.max(0, alvo), behavior: "smooth" });
+  }
+
+  // Deixa o chip informado como ativo (e garante que ele apareça na barra).
+  function setActiveChip(id) {
+    chipsEl.querySelectorAll(".chip").forEach((c) =>
+      c.classList.toggle("is-active", c.dataset.target === id)
+    );
+    if (id !== ultimaAtiva) {
+      ultimaAtiva = id;
+      const chip = chipsEl.querySelector('.chip[data-target="' + id + '"]');
+      if (chip) garantirChipVisivel(chip);
+    }
   }
 
   // Marca o chip da categoria visível no topo da tela.
   function markActiveChip() {
     const secoes = [...menuEl.querySelectorAll(".section")];
-    const chips = [...chipsEl.querySelectorAll(".chip")];
     if (!secoes.length) return;
 
     let ativa = secoes[0].id;
     for (const s of secoes) {
-      if (s.getBoundingClientRect().top <= 150) ativa = s.id;
+      if (s.getBoundingClientRect().top <= HEADER) ativa = s.id;
     }
-    chips.forEach((c) =>
-      c.classList.toggle("is-active", c.dataset.target === ativa)
-    );
+
+    // Perto do fim da página, a última seção pode nunca chegar ao topo —
+    // então forçamos ela como ativa para o chip não ficar "sem seleção".
+    const fim =
+      window.innerHeight + window.scrollY >= document.body.scrollHeight - 4;
+    if (fim) ativa = secoes[secoes.length - 1].id;
+
+    setActiveChip(ativa);
   }
 
   // --- Eventos --------------------------------------------------------------
@@ -108,12 +137,15 @@
     tab.addEventListener("click", () => render(tab.dataset.tab))
   );
 
-  // Clique nos chips: rolar até a categoria.
+  // Clique nos chips: rolar até a categoria e já marcá-la como ativa
+  // (não depende só da rolagem, evitando categorias do fim ficarem sem seleção).
   chipsEl.addEventListener("click", (e) => {
     const chip = e.target.closest(".chip");
     if (!chip) return;
     const alvo = document.getElementById(chip.dataset.target);
-    if (alvo) alvo.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (!alvo) return;
+    setActiveChip(chip.dataset.target);
+    alvo.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 
   // Botão voltar ao topo + chip ativo conforme rolagem.
