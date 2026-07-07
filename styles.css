@@ -1,0 +1,278 @@
+/*
+  =============================================================================
+  VÍCIO MEX — ESTILO DO CARDÁPIO DIGITAL
+  Mobile-first. Cores da marca abaixo em :root — mude ali para reajustar tudo.
+  =============================================================================
+*/
+
+:root {
+  --red:        #e01a22;   /* vermelho principal (fundo) */
+  --red-dark:   #b3121a;   /* vermelho escuro (bordas/sombra) */
+  --green:      #0b3d2b;   /* verde da faixa */
+  --yellow:     #ffc20e;   /* amarelo dos destaques */
+  --yellow-hi:  #ffd54a;   /* amarelo claro */
+  --cream:      #fff8ec;   /* off-white do texto */
+  --ink:        #1a1a1a;   /* texto escuro */
+  --muted:      #ffd9c9;   /* descrições sobre o vermelho */
+
+  --font-display: "Rozha One", Georgia, "Times New Roman", serif;
+  --font-script:  "Yellowtail", cursive;
+  --font-body:    "Montserrat", system-ui, -apple-system, sans-serif;
+
+  --maxw: 720px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--red);
+  color: var(--cream);
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 40px;
+}
+
+/* ---- Faixa superior verde/amarelo/verde ---------------------------------- */
+.flag-bar {
+  height: 26px;
+  background: linear-gradient(
+    to bottom,
+    var(--green) 0 38%,
+    var(--yellow) 38% 62%,
+    var(--green) 62% 100%
+  );
+}
+
+/* ---- Cabeçalho / marca --------------------------------------------------- */
+.site-header {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 26px 20px 10px;
+  text-align: center;
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 15vw, 5rem);
+  line-height: 0.9;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  color: var(--cream);
+  text-shadow: 0 3px 0 var(--red-dark);
+}
+.brand__idao {
+  font-family: var(--font-script);
+  color: var(--yellow);
+  font-size: 0.62em;
+  margin-left: -0.05em;
+}
+.brand__tagline {
+  margin-top: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.4px;
+  color: var(--yellow-hi);
+  text-transform: uppercase;
+}
+
+/* ---- Abas Comida / Bebida ------------------------------------------------ */
+.tabs {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  gap: 8px;
+  max-width: var(--maxw);
+  margin: 14px auto 0;
+  padding: 12px 16px;
+  background: var(--red);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+.tab {
+  flex: 1;
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--cream);
+  background: transparent;
+  border: 2px solid rgba(255, 248, 236, 0.4);
+  border-radius: 999px;
+  padding: 11px 8px;
+  cursor: pointer;
+  transition: transform 0.08s ease, background 0.15s ease, color 0.15s ease;
+}
+.tab:active { transform: scale(0.97); }
+.tab.is-active {
+  background: var(--yellow);
+  border-color: var(--yellow);
+  color: var(--green);
+}
+
+/* ---- Chips de categoria -------------------------------------------------- */
+.chips {
+  position: sticky;
+  top: 64px;
+  z-index: 19;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 10px 16px;
+  background: var(--red);
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.chips::-webkit-scrollbar { display: none; }
+.chip {
+  flex: 0 0 auto;
+  font-weight: 700;
+  font-size: 0.82rem;
+  white-space: nowrap;
+  color: var(--green);
+  background: var(--cream);
+  border: none;
+  border-radius: 999px;
+  padding: 7px 14px;
+  cursor: pointer;
+  transition: transform 0.08s ease, background 0.15s ease;
+}
+.chip:active { transform: scale(0.95); }
+.chip.is-active { background: var(--yellow); }
+
+/* ---- Menu ---------------------------------------------------------------- */
+.menu {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 12px 16px 30px;
+}
+
+.section { padding: 22px 0 8px; scroll-margin-top: 120px; }
+
+.section__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 9vw, 2.9rem);
+  line-height: 1;
+  color: var(--cream);
+  margin-bottom: 4px;
+}
+/* Uma categoria a cada duas ganha o título amarelo, como nos originais */
+.section:nth-of-type(even) .section__title { color: var(--yellow); }
+
+.section__rule {
+  height: 3px;
+  width: 64px;
+  background: var(--yellow);
+  border-radius: 3px;
+  margin: 8px 0 16px;
+}
+.section:nth-of-type(even) .section__rule { background: var(--cream); }
+
+/* ---- Item ---------------------------------------------------------------- */
+.item {
+  padding: 12px 0;
+  border-bottom: 1px dashed rgba(255, 248, 236, 0.25);
+}
+.item:last-child { border-bottom: none; }
+
+.item__head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.item__name {
+  font-weight: 800;
+  font-size: 1.02rem;
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+  flex: 1;
+}
+.item__leader {
+  flex: 1;
+  border-bottom: 2px dotted rgba(255, 248, 236, 0.35);
+  transform: translateY(-4px);
+}
+.item__price {
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--yellow);
+  white-space: nowrap;
+}
+.item__desc {
+  margin-top: 5px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.section__note {
+  margin-top: 14px;
+  display: inline-block;
+  font-weight: 700;
+  font-size: 0.86rem;
+  color: var(--green);
+  background: var(--yellow);
+  padding: 8px 14px;
+  border-radius: 10px;
+}
+
+/* ---- Rodapé -------------------------------------------------------------- */
+.site-footer {
+  max-width: var(--maxw);
+  margin: 20px auto 0;
+  text-align: center;
+}
+.checker {
+  height: 22px;
+  margin-bottom: 16px;
+  background-image:
+    linear-gradient(45deg, var(--yellow) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--yellow) 25%, transparent 25%);
+  background-size: 22px 22px;
+  background-position: 0 0, 11px 0;
+}
+.site-footer__note {
+  font-size: 0.78rem;
+  color: var(--muted);
+  padding: 0 20px;
+}
+.site-footer__brand {
+  margin-top: 8px;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--yellow);
+}
+
+/* ---- Botão voltar ao topo ------------------------------------------------ */
+.to-top {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 30;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: none;
+  background: var(--yellow);
+  color: var(--green);
+  font-size: 1.4rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+/* ---- Acessibilidade / movimento ------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+
+/* Telas maiores: um respiro nas laterais */
+@media (min-width: 760px) {
+  .brand { text-shadow: 0 4px 0 var(--red-dark); }
+}
