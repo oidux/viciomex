@@ -18,7 +18,7 @@
   --cream:      #fdf3e3;   /* off-white do texto/papel */
   --muted:      #f6cdbd;   /* descrições sobre o vermelho */
 
-  --font-display: "Bodoni Moda", "Times New Roman", Georgia, serif;
+  --font-display: "Bevan", "Rockwell", Georgia, serif;
   --font-script:  "Yellowtail", cursive;
   --font-body:    "Bricolage Grotesque", system-ui, -apple-system, sans-serif;
 
@@ -194,11 +194,10 @@ body > * { position: relative; z-index: 2; }
 
 .section__title {
   font-family: var(--font-display);
-  font-variation-settings: "opsz" 96;
-  font-weight: 900;
-  font-size: clamp(2.4rem, 12vw, 3.4rem);
-  line-height: 0.98;
-  letter-spacing: -0.5px;
+  font-weight: 400;   /* Bevan já é pesada por natureza */
+  font-size: clamp(2.1rem, 10vw, 3rem);
+  line-height: 1.02;
+  letter-spacing: 0.2px;
   text-wrap: balance;
   color: var(--cream);
   margin-bottom: 12px;
@@ -267,13 +266,12 @@ body > * { position: relative; z-index: 2; }
 .section__note {
   margin-top: 16px;
   display: inline-block;
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 600;
-  font-size: 0.95rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.9rem;
   color: var(--green);
   background: var(--yellow);
-  padding: 7px 14px;
+  padding: 8px 14px;
   border-radius: 3px;
 }
 
