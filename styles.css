@@ -14,9 +14,10 @@
   --cream:      #fff8ec;   /* off-white do texto */
   --ink:        #1a1a1a;   /* texto escuro */
   --muted:      #ffd9c9;   /* descrições sobre o vermelho */
+  --dark:       #150a0e;   /* fundo escuro do topo (cor da logo) */
+  --pink:       #d81b60;   /* rosa/magenta da logo */
 
-  --font-display: "Rozha One", Georgia, "Times New Roman", serif;
-  --font-script:  "Yellowtail", cursive;
+  --font-display: "Shrikhand", Georgia, "Times New Roman", serif;
   --font-body:    "Montserrat", system-ui, -apple-system, sans-serif;
 
   --maxw: 720px;
@@ -46,35 +47,27 @@ body {
   );
 }
 
-/* ---- Cabeçalho / marca --------------------------------------------------- */
+/* ---- Cabeçalho / marca (topo escuro com a logo) -------------------------- */
 .site-header {
-  max-width: var(--maxw);
-  margin: 0 auto;
-  padding: 26px 20px 10px;
+  background: radial-gradient(120% 100% at 50% 0%, #2a1218 0%, var(--dark) 70%);
+  padding: 30px 20px 34px;
   text-align: center;
 }
 
-.brand {
-  font-family: var(--font-display);
-  font-size: clamp(3rem, 15vw, 5rem);
-  line-height: 0.9;
-  letter-spacing: 0.5px;
-  display: inline-block;
-  color: var(--cream);
-  text-shadow: 0 3px 0 var(--red-dark);
-}
-.brand__idao {
-  font-family: var(--font-script);
-  color: var(--yellow);
-  font-size: 0.62em;
-  margin-left: -0.05em;
+.brand__logo {
+  display: block;
+  width: min(66%, 300px);
+  height: auto;
+  margin: 0 auto;
+  /* brilho suave para destacar o rosa da logo sobre o fundo escuro */
+  filter: drop-shadow(0 0 22px rgba(216, 27, 96, 0.45));
 }
 .brand__tagline {
-  margin-top: 8px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  letter-spacing: 0.4px;
-  color: var(--yellow-hi);
+  margin-top: 16px;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 1.5px;
+  color: var(--yellow);
   text-transform: uppercase;
 }
 
