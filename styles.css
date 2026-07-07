@@ -220,8 +220,8 @@ body > * { position: relative; z-index: 2; }
 }
 
 /* ---- Item ---------------------------------------------------------------- */
-.item { padding: 13px 0; }
-.item + .item { border-top: 1px solid rgba(253, 243, 227, 0.14); }
+.item { padding: 20px 0; }
+.item + .item { border-top: 1px solid rgba(253, 243, 227, 0.16); }
 
 .item__row {
   display: flex;
@@ -248,10 +248,11 @@ body > * { position: relative; z-index: 2; }
   font-variant-numeric: tabular-nums;
 }
 .item__desc {
-  margin-top: 5px;
+  margin-top: 7px;
   max-width: 52ch;
-  font-size: 0.9rem;
+  font-size: 0.83rem;
   font-weight: 500;
+  line-height: 1.5;
   color: var(--muted);
 }
 
