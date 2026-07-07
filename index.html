@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#e01a22" />
+  <title>Vício Mex — Cardápio</title>
+  <meta name="description" content="Cardápio digital do Vício Mex — comida mexicana com pegada de boteco. Burritos, tacos, quesadillas, smash, drinks e muito mais." />
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800&family=Rozha+One&family=Yellowtail&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Faixa superior (verde / amarelo / verde) -->
+  <div class="flag-bar" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="brand">
+      <span class="brand__mex">MEX</span><span class="brand__idao">idão</span>
+    </div>
+    <p class="brand__tagline">Comida mexicana com pegada de boteco</p>
+  </header>
+
+  <!-- Abas Comida / Bebida -->
+  <nav class="tabs" role="tablist" aria-label="Seções do cardápio">
+    <button class="tab is-active" role="tab" aria-selected="true" data-tab="comida">🌮 Comida</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="bebida">🍹 Bebida</button>
+  </nav>
+
+  <!-- Chips de navegação rápida entre categorias -->
+  <div class="chips" id="chips" aria-label="Ir para categoria"></div>
+
+  <main id="menu" class="menu">
+    <!-- Conteúdo renderizado por app.js -->
+  </main>
+
+  <footer class="site-footer">
+    <div class="checker" aria-hidden="true"></div>
+    <p class="site-footer__note">Valores em reais (R$). Itens e preços sujeitos a alteração.</p>
+    <p class="site-footer__brand">Vício Mex • MEXidão</p>
+  </footer>
+
+  <!-- Botão voltar ao topo -->
+  <button id="toTop" class="to-top" aria-label="Voltar ao topo" hidden>↑</button>
+
+  <script src="menu.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
