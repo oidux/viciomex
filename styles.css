@@ -57,28 +57,32 @@ body::after {
 }
 body > * { position: relative; z-index: 2; }
 
-/* ---- Xadrez amarelo/vermelho (assinatura da marca) ----------------------- */
+/* ---- Xadrez diagonal amarelo/vermelho (assinatura da marca) --------------- */
+/* Um tabuleiro inclinado (skew), como na arte de referência do MEXidão. */
 .checker {
-  height: calc(var(--check) * 2);
-  background-image: conic-gradient(
-    var(--yellow) 90deg,
-    var(--red-deep) 90deg 180deg,
-    var(--yellow) 180deg 270deg,
-    var(--red-deep) 270deg
-  );
-  background-size: calc(var(--check) * 2) calc(var(--check) * 2);
+  position: relative;
+  height: 34px;
+  overflow: hidden;
 }
-
-/* ---- Faixa superior verde/amarelo/verde ---------------------------------- */
-.flag-bar {
-  height: 30px;
-  background: linear-gradient(
-    to bottom,
-    var(--green) 0 32%,
-    var(--yellow) 32% 68%,
-    var(--green) 68% 100%
-  );
+.checker::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -48px;
+  right: -48px;
+  background:
+    conic-gradient(
+      var(--yellow) 90deg,
+      var(--red) 90deg 180deg,
+      var(--yellow) 180deg 270deg,
+      var(--red) 270deg
+    )
+    0 0 / 34px 34px;
+  transform: skewX(-20deg);
 }
+.checker--top { height: 30px; }
+.checker--top::before { background-size: 30px 30px; }
 
 /* ---- Cabeçalho / marca (topo escuro com a logo) -------------------------- */
 .site-header {
@@ -114,7 +118,8 @@ body > * { position: relative; z-index: 2; }
   max-width: var(--maxw);
   margin: 0 auto;
   padding: 12px 16px;
-  background: linear-gradient(var(--red) 72%, transparent);
+  background: var(--red);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.28);
 }
 .tab {
   flex: 1;
@@ -243,10 +248,10 @@ body > * { position: relative; z-index: 2; }
 }
 .item__price {
   margin-left: auto;
-  font-family: var(--font-display);
-  font-variation-settings: "opsz" 40;
+  font-family: var(--font-body);
   font-weight: 800;
-  font-size: 1.18rem;
+  font-size: 1.05rem;
+  letter-spacing: 0.3px;
   color: var(--yellow);
   white-space: nowrap;
   font-variant-numeric: tabular-nums;
