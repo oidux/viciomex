@@ -183,6 +183,18 @@
   const btnContinue = document.getElementById("promoContinue");
   const slides = [...track.querySelectorAll(".promo__slide")];
 
+  // Efeito de "afundar" no toque: dispara assim que o dedo encosta (não depende
+  // do :active, que no iOS só aparece num aperto firme). Mantém por um instante
+  // para que o efeito seja visível mesmo num toque rápido.
+  promo.querySelectorAll(".promo__btn").forEach((btn) => {
+    const press = () => btn.classList.add("is-pressing");
+    const release = () => setTimeout(() => btn.classList.remove("is-pressing"), 130);
+    btn.addEventListener("pointerdown", press);
+    btn.addEventListener("pointerup", release);
+    btn.addEventListener("pointerleave", release);
+    btn.addEventListener("pointercancel", release);
+  });
+
   // Cria as bolinhas de posição, uma por imagem.
   slides.forEach((_, i) => {
     const dot = document.createElement("span");
