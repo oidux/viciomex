@@ -165,3 +165,63 @@
   // --- Início ---------------------------------------------------------------
   render("comida");
 })();
+
+/*
+  =============================================================================
+  POPUP DE PROMOÇÃO
+  Aparece ao abrir o cardápio: carrossel de imagens (arrasta pro lado) +
+  botões "Quero saber mais" (Instagram) e "Ver o cardápio" (fecha).
+  =============================================================================
+*/
+(function () {
+  const promo = document.getElementById("promo");
+  if (!promo) return;
+
+  const track = document.getElementById("promoTrack");
+  const dotsEl = document.getElementById("promoDots");
+  const btnClose = document.getElementById("promoClose");
+  const btnContinue = document.getElementById("promoContinue");
+  const slides = [...track.querySelectorAll(".promo__slide")];
+
+  // Cria as bolinhas de posição, uma por imagem.
+  slides.forEach((_, i) => {
+    const dot = document.createElement("span");
+    dot.className = "promo__dot" + (i === 0 ? " is-active" : "");
+    dotsEl.appendChild(dot);
+  });
+  const dots = [...dotsEl.children];
+
+  // Atualiza a bolinha ativa conforme o carrossel é arrastado.
+  track.addEventListener(
+    "scroll",
+    () => {
+      const i = Math.round(track.scrollLeft / track.clientWidth);
+      dots.forEach((d, k) => d.classList.toggle("is-active", k === i));
+    },
+    { passive: true }
+  );
+
+  // Abre/fecha.
+  function abrir() {
+    promo.classList.remove("is-hidden");
+    document.body.classList.add("promo-open");
+  }
+  function fechar() {
+    promo.classList.add("is-hidden");
+    document.body.classList.remove("promo-open");
+  }
+
+  btnContinue.addEventListener("click", fechar);
+  btnClose.addEventListener("click", fechar);
+  // Clicar fora do card (no fundo escuro) também fecha.
+  promo.addEventListener("click", (e) => {
+    if (e.target === promo) fechar();
+  });
+  // Tecla Esc fecha.
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !promo.classList.contains("is-hidden")) fechar();
+  });
+
+  // Mostra ao abrir a página.
+  abrir();
+})();

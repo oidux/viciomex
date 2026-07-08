@@ -12,9 +12,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Chicle&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Yellowtail&display=swap" rel="stylesheet" />
 
-  <!-- ?v=9 = "controle de versão": ao mudar o site, aumente esse número
+  <!-- ?v=10 = "controle de versão": ao mudar o site, aumente esse número
        (v=5, v=6...) para o navegador baixar a versão nova em vez do cache. -->
-  <link rel="stylesheet" href="styles.css?v=9" />
+  <link rel="stylesheet" href="styles.css?v=10" />
 </head>
 <body>
   <!-- Xadrez da marca no topo -->
@@ -50,7 +50,23 @@
   <!-- Botão voltar ao topo -->
   <button id="toTop" class="to-top" aria-label="Voltar ao topo" hidden>↑</button>
 
-  <script src="menu.js?v=9"></script>
-  <script src="app.js?v=9"></script>
+  <!-- Popup de promoção (aparece ao abrir) -->
+  <div class="promo" id="promo" role="dialog" aria-modal="true" aria-label="Promoção Vício Mex">
+    <div class="promo__card">
+      <button class="promo__close" id="promoClose" aria-label="Fechar">&times;</button>
+      <div class="promo__track" id="promoTrack">
+        <div class="promo__slide"><img src="promo1.jpg?v=10" alt="Vício Mex — o sabor que vicia, agora em formato de festival" /></div>
+        <div class="promo__slide"><img src="promo2.jpg?v=10" alt="Festival Mexicano — terça, quarta e quinta" /></div>
+      </div>
+      <div class="promo__dots" id="promoDots" aria-hidden="true"></div>
+      <div class="promo__actions">
+        <a class="promo__btn promo__btn--primary" href="https://www.instagram.com/p/DaQVj7XFn8F/" target="_blank" rel="noopener">Quero saber mais</a>
+        <button class="promo__btn promo__btn--ghost" id="promoContinue" type="button">Ver o cardápio</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="menu.js?v=10"></script>
+  <script src="app.js?v=10"></script>
 </body>
 </html>
